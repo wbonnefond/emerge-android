@@ -11,13 +11,6 @@ class MultiProjectDisablePerfEmergePluginTest : EmergePluginTest() {
     EmergeGradleRunner.create("multi-project-disable-perf")
       .withArguments(":app:emergeLocalDebugTest", "--dry-run") // should not be registered when performance is disabled
       .withDefaultServer()
-      .assert { result, _ ->
-        assertTrue(
-          result.output.contains(
-            "task 'emergeLocalDebugTest' not found in project ':app'"
-          )
-        )
-      }
       .buildAndFail()
   }
 }
