@@ -42,6 +42,7 @@ class EmergePlugin : Plugin<Project> {
 
     applyToAppProject(project, emergeExtension)
 
+    // Move if-check inside project.afterEvaluate
     if (emergeExtension.perfOptions.enabled.getOrElse(true)) {
       // Perf project must be configured after application as the configuration is reliant on
       // property values set from appProject.
